@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const superman = {
+        name : 'clark',
+        age : 30,
+    };
+    console.log(superman);
+    
+    superman.hairColor = 'black'; // 프로퍼티 추가
+    superman['hobby'] = 'football'; // 프로퍼티 추가
+    console.log(superman);
+    
+    delete superman.hobby; // 프로퍼티 삭제
+    console.log(superman);
+
+    function makeObject(name, age) {
+        return {
+            name : name,
+            age : age,
+            hairColor : 'football'
+        }
+    }
+
+    const Mike = makeObject('Mike', 30);
+    console.log(Mike);
+
+    // in - 프로퍼티 확인
+    console.log('age' in Mike); // true
+    console.log('birthday' in Mike); // false
+
+    // 객체가 갖고있는 프로퍼티명을 for in문으로 출력
+    for(key in Mike) { // key는 아무 단어로 대체 가능
+        console.log(key);
+    }
+</script>
+</html>

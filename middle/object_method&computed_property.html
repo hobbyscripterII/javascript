@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let n = 'name';
+    let a = 'age';
+
+    const user = {
+        [n] : 'Mike', // 'n'에 있는 'name'이 key 값이 됨
+        [a] : 30, // 'a'에 있는 'age'가 key 값이 됨
+    };
+
+    console.log(user);
+
+    // const user2 = user; // 객체 주소값 복제(얕은 복사) -> user 값 변경 시 user2 값도 같이 변경됨
+    const user2 = Object.assign(user); // 객체 복제(깊은 복사) -> user 값 변경 시 user2 값은 영향 x
+    user2.name = 'Jone';
+    user2.age = 31;
+    console.log(user2);
+
+    const keys = Object.keys(user); // key 값 출력
+    console.log(keys);
+
+    const values = Object.values(user); // values 값 출력
+    console.log(values);
+
+    const entries = Object.entries(user); // key, values 값 출력
+    console.log(entries);
+
+    let arr = [
+        ['mon', '월'],
+        ['tue', '화'],
+    ];
+
+    const fromEntries = Object.fromEntries(arr); // 배열을 객체로 생성
+    console.log(fromEntries); // {mon: '월', tue: '화'}
+</script>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // const math = prompt('수학 점수를 입력하세요.');
+    // const english = prompt('영어 점수를 입력하세요.');
+    // alert((math + english) / 2); // 문자열 + 문자열(계산 x, 에러 발생)
+
+    // const math = 70;
+    // const english = 60;
+    // alert((math + english) / 2); // 숫자 + 숫자(계산 o)
+
+    // String - 문자열 변환
+    console.log(
+    String(3),
+    String(true),
+    String(false),
+    String(null),
+    String(undefined),
+    );
+
+    // Number - 숫자형 변환
+    console.log(
+        Number('1234'),
+        Number('1234abc'), // NaN
+        Number(true), // 1
+        Number(false) // 0
+    );
+
+    // Boolean
+    // true - 값이 들어있으면 true 반환
+    console.log(
+        Boolean(1),
+        Boolean(1234),
+        Boolean('javascript')
+    );
+
+    // false - 값이 없으면 false 반환
+    console.log(
+        Boolean(0),
+        Boolean(''),
+        Boolean(null),
+        Boolean(undefined),
+        Boolean(NaN)
+    );
+
+    // >>>>> 주의사항 >>>>>
+    // 0, ''과 같이 값이 없을 때는 false 반환
+    // 공백이라도 문자열이 들어가 있을 경우에는 true 반환
+    Number(0); // false
+    Number('') // false
+    Number('0'); // true
+    Number(' '); // true
+</script>
+</html>

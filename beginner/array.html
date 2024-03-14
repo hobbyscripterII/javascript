@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let days = ['월', '화', '수'];
+    // days[1] = 'tue';
+    // console.log(days[1]);
+    console.log(days.length);
+    days.push('목');
+    days.unshift('일');
+
+    console.log('>>>>>');
+
+    // for문과 index 값을 통해 배열 순회
+    // for(let idx = 0; idx < days.length; idx++) {
+    //     console.log(days[idx]);
+    // }
+
+    // of - index 사용이 불가능하나 배열 순회 시 간편하게 사용 가능
+    for(let day of days) {
+        console.log(day);
+    }
+</script>
+</html>

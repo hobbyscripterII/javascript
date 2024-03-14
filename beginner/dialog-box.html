@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="이름 입력" onclick="promptEx()">
+    <input type="button" value="예약 날짜 입력" onclick="promptEx2()">
+    <input type="button" value="성인 여부" onclick="confirmEx()">
+</body>
+<script>
+    function promptEx() {
+        const name = prompt('이름을 입력하세요.');
+        alert(`환영합니다. ${name}님!`);
+    }
+
+    function promptEx2() {
+        // prompt는 인자 2개를 입력받을 수 있음
+        // 1 - 화면창에 띄워질 문구
+        // 2 - input 폼에 들어갈 문구
+        const date = prompt('예약일을 입력하세요.', '2024-03-');
+        alert(`${date}일자로 예약이 완료되었습니다.`);
+    }
+
+    function confirmEx() {
+        if(confirm('당신은 성인입니까?')) {
+            alert('당신은 성인입니다.');
+        } else {
+            alert('당신은 성인이 아닙니다.');
+        }
+    }
+</script>
+</html>

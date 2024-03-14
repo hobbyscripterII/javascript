@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 화살표 함수는 일반 함수와는 달리 자신만의 this를 가지지 않음
+    // 화살표 함수 내부에서 this를 사용하면 this는 외부에서 값을 가져 옴(window, global)
+    // 때문에 객체 내에서는 화살표 함수 사용을 추천하지 않음
+
+    let boy = {
+        name : 'Mike',
+        showName : function() {
+            console.log(this.name)
+        }
+    };
+
+    boy.showName();
+    
+    let man = boy;
+    man.name = 'Tom';
+    console.log(boy.name); // man이 boy의 주소값을 참조하고 있기 때문에 'Tom'이 출력됨
+    boy.showName();
+    man.showName();
+    
+    boy = null;
+    man.showName(); // null이 아닌 25번째 줄에서 지정한 Tom이 출력됨
+    
+</script>
+</html>

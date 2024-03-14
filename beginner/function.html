@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // >>>>> return x
+    // return없는 함수는 콘솔 출력 시 undefined를 반환함
+    function hello(name) {
+        // const msg = `Hello, ${name}!`;
+        // let msg = 'Hello';
+        // >>>>> 조건문을 통해 수정 처리(예외 처리 x)
+        // if(name) { msg += `, ${name}!`; }
+
+        // >>>>> 조건문 없이 or 연산자로 처리 가능(예외 처리 o)
+        const newName = name || 'friend'; // undefined 예외 처리
+        let msg = `hello, ${newName}`;
+        console.log(msg);
+    }
+
+    hello();
+    hello('jy');
+
+    // return o
+    function add(num1, num2) {
+        return num1 + num2;
+    }
+
+    console.log(add(1, 2));
+</script>
+</html>
