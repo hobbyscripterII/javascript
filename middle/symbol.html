@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // Symbol - 유일성이 보장됨
+    // * 특정 객체에 원본을 건드리지않고 속성 추가가 가능함
+
+    // 다른 개발자가 만들어놓은 객체
+    const user = {
+        name : 'Mike',
+        age : 30
+    };
+
+    // 내가 작업
+    const showName = Symbol('show name'); // 심볼 추가(인자 값 - 설명)
+    console.log(showName.description); // Symbol의 설명 출력(show name)
+    
+    user[showName] = function() {
+        console.log(this.name);
+    };
+
+    user[showName](); // 
+
+    console.log('>>>>>>>>>>>>>>>>>>>>');
+
+    // 사용자가 접속하면 보는 메세지
+    // his name is Mike.
+    // his age is 30.
+    for(let key in user) {
+        console.log(`his ${key} is ${user[key]}.`);
+    }
+    // 위에서 Symbol로 등록한 프로퍼티는 출력 x(원본을 건드리지 않음)
+</script>
+</html>
