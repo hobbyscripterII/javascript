@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>node 생성·복사·삭제하기</h1>
+
+    <ul class="fruit">
+        <li id="red">red</li>
+        <li id="blue">blue</li>
+        <li id="green"><a href="#">green</a></li>
+    </ul>
+</body>
+
+<script>
+    const red = document.getElementById('red');
+    // red의 첫번째 자식 노드 정보 가져오기
+    const redFirstChild = red.firstChild;
+    // console.log("nodeName = " + redFirstChild.nodeName);
+    // console.log("nodeType = " + redFirstChild.nodeType);
+    console.log("nodeValue = " + redFirstChild.nodeValue); // *
+    
+    // [응용]
+    // class, id 내에 다른 요소가 있을 경우 querySelector를 사용해 요소를 가져오자!
+    const green = document.querySelector('#green > a');
+    const greenLastChild = green.lastChild;
+    // console.log("nodeName = " + greenLastChild.nodeName);
+    // console.log("nodeType = " + greenLastChild.nodeType);
+
+    // 똑같이 'green' 반환
+    console.log("nodeValue = " + greenLastChild.nodeValue); // *
+
+    // nodeValue 변경
+    // (참고) nodeValue는 text가 아니면 null을 반환
+    greenLastChild.nodeValue = '초록색';
+
+    // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    const ul = document.querySelector('.fruit'); // ul(fruit) 요소 가져오기
+
+    // 노드 생성 - 1
+    // const newLi = document.createElement('li'); // li 요소 생성
+    // * appendChild - 지정한 부모 요소의 마지막 자식 요소로 추가
+    // ul.appendChild(newLi); // ul의 마지막 자식 요소로 li 추가
+
+    // 노드 생성 - 2
+    const newLi2 = document.createElement('li'); // li 요소 생성
+    const newText = document.createTextNode('pink'); // text 노드 생성
+    newLi2.appendChild(newText); // li의 마지막 자식 노드에 text 노드 추가
+    ul.appendChild(newLi2); // ul의 마지막 자식 노드에 li 추가
+    
+    // 요소 추가 시 원하는 노드 앞에 추가하기
+    const newLi3 = document.createElement('li');
+    const newText2 = document.createTextNode('black');
+    newLi3.appendChild(newText2);
+    const blue = document.getElementById('blue'); // 이전에 삽입할 노드 가져오기
+    // * insertBefore - 2번째 인자로 받은 노드 앞에 추가
+    ul.insertBefore(newLi3, blue); // blue 요소 앞에 노드를 추가
+
+    // 노드 복사
+    // * cloneNode - 노드 복사
+    const newBlack = newLi3.cloneNode(true); // true 시 '깊은 복사'(default는 false)
+    ul.appendChild(newBlack);
+
+    // 노드 삭제
+    ul.removeChild(newBlack);
+    ul.removeChild(ul.firstElementChild); // ul 요소의 첫번째 노드 삭제
+    ul.removeChild(ul.lastElementChild); // ul 요소의 마지막 노드 삭제
+</script>
+</html>
