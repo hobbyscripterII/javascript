@@ -60,8 +60,8 @@
     ul.insertBefore(newLi3, blue); // blue 요소 앞에 노드를 추가
 
     // 노드 복사
-    // * cloneNode - 노드 복사
-    const newBlack = newLi3.cloneNode(true); // true 시 '깊은 복사'(default는 false)
+    // * cloneNode - 노드 복사(true 시 '깊은 복사'가 이뤄지기 때문에 자식 요소까지 복사, default는 false)
+    const newBlack = newLi3.cloneNode(true);
     ul.appendChild(newBlack);
 
     // 노드 삭제
