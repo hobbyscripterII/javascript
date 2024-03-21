@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>node에 접근하기</h1>
+
+    <h3>lorem ipsum1</h3>
+    <p id="first">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Circumcisaque adiuvet medium breviter, reliquerunt. Curabitur antiquis quoddam aeterno inimicus penitus inferiorem quosdam suscipiantur. Inportuno publicam, distrahi loca torquate neglexerit is solent. Deterret remotis poterimus nisl tamquam mucius tantas. Data fautrices bonarum generis confectum. Oportet quales ullo condimentum dui pretium erimus ortum ius.
+        <a class="link" href="https://naver.com">Naver</a>
+    </p>
+
+    <h3>lorem ipsum2</h3>
+    <p id="second">
+        Repudiandae seque iudicatum tibique platonem cognosci dicitis tristique ceteris. Moderatio sentit inmortalibus aequitatem augeri, servata. Aliae reliquisti insipientiam depravate modo admodum reliqui. Multo sumus ennii foedus assiduitas necessarius equidem chaere. Fere sustulisti qua sentire fere eveniunt ponatur. Solum faciunt afficitur fortitudo inciderint. Tractat nomini hic etsi, maledici fructuosam parabilis. Omnium intelleges ante dialectica expectata quoque insatiabiles emancipaverat. Iudicabit indoctum verbis disciplinae tutiorem vexetur exeduntur p iure futurove difficile.
+        <a class="link" href="https://daum.net">Daum</a>
+    </p>
+
+    <h3>lorem ipsum3</h3>
+    <p id="third">
+        Carum uti relinqueret tincidunt nam, nusquam provident dicebas istius. Efficeretur iudicandum m uberiora mediocritatem conciliant ipso atomos dialectica quadam. Molestie harum servare noster ibidem forensibus primisque posuit priventur distinguantur altera. Seditione stoici suppetet utamur amicitiam. Filium liberos possim gaudere fodere didicisse. Dediti torquem expetenda, attulit, memoriter simul abhorreant effugiendorum. Fusce conspiratione paranda eos detractio, vidit que vide dices adhuc. Litora ancillae impeditur civitas studiose.
+        <a class="link" href="https://github.com">Github</a>
+    </p>
+
+    <h3>lorem ipsum4</h3>
+    <p id="fourth">
+        Massa stabilem abducat eaque usque hunc confidere credo. Consumere maledici vivendum, tradidisse inimicus philosophi liberatione tollit caret. Tractatas ab natus solitudo in philosophi plato. Videretur inducitur efficerent eamque dare primum magnos, delectat. Sit publicam cepisse fugiamus placuit provident confidet. Scribendi didicisse sapienter praeclaram quamquam.
+    </p>
+
+    <h3>lorem ipsum5</h3>
+    <p id="fifth">
+        Quorum desideret aliquod ignavi percipitur parvos haeret aliquando fugienda. Mutat quale, dicit astris scribere cogitavisse sensu. Adipisci res soliditatem aspernari deterret maiorem eidola. Victi expetendam divitiarum virtutes istae diuturnum multo. Vituperatum cognosci pertineant, an mel odio. Amarissimam habitant adversa incidant ibidem ipso nibh existimo firmitatem sol. Sis romano malesuada amicitias nemore molestum.
+    </p>
+</body>
+
+<script>
+    // 특정 id에 접근
+    const el = document.getElementById('first');
+    console.log(el);
+
+    // getElementsByTagName - 해당 요소 모두 가져오기
+    const pList = document.getElementsByTagName('p');
+    console.log(pList);
+
+    // 리스트의 개별 요소는 idx를 통해 접근 가능
+    console.log(pList[0]);
+    console.log(pList[1]);
+    console.log(pList[2]);
+
+    // 요소 리스트 순회
+    for(p of pList) {
+        // p 태그의 모든 font size를 20px로 변경
+        p.style.fontSize = '20px';
+    }
+
+    // getElementsByClassName - 해당 클래스 모두 가져오기(HTMLCollection으로 출력)
+    const link = document.getElementsByClassName('link');
+    console.log(link);
+
+    // * querySelectorAll - 해당 클래스 및 아이디 모두 가져오기(nodeList로 출력)
+    // class 찾기
+    const linkSelectorAll = document.querySelectorAll('.link');
+    console.log(linkSelectorAll);
+    // id 찾기
+    // id는 한 페이지에 1개만 가능하기 때문에 굳이 All을 쓸 필요가 x
+    // 때문에 querySelectorAll이 아닌 querySelector를 사용하는 것이 좋음(querySelector는 첫번째 요소만 반환)
+    const firstAll = document.querySelectorAll('#first');
+    console.log(firstAll);
+    const firstOne = document.querySelector('#first');
+    console.log(firstOne);
+
+    // <h3>의 두번째 요소 반환
+    const h3 = document.querySelector('h3:nth-of-type(2)');
+    console.log(h3);
+</script>
+</html>
