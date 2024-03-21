@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>부모 node & 자식 node 접근하기</h1>
+
+    <h3>lorem ipsum1</h3>
+    <p id="first">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Circumcisaque adiuvet medium breviter, reliquerunt. Curabitur antiquis quoddam aeterno inimicus penitus inferiorem quosdam suscipiantur. Inportuno publicam, distrahi loca torquate neglexerit is solent. Deterret remotis poterimus nisl tamquam mucius tantas. Data fautrices bonarum generis confectum. Oportet quales ullo condimentum dui pretium erimus ortum ius.
+        <a class="link" href="https://naver.com">Naver</a>
+    </p>
+
+    <h3>lorem ipsum2</h3>
+    <p id="second">
+        Repudiandae seque iudicatum tibique platonem cognosci dicitis tristique ceteris. Moderatio sentit inmortalibus aequitatem augeri, servata. Aliae reliquisti insipientiam depravate modo admodum reliqui. Multo sumus ennii foedus assiduitas necessarius equidem chaere. Fere sustulisti qua sentire fere eveniunt ponatur. Solum faciunt afficitur fortitudo inciderint. Tractat nomini hic etsi, maledici fructuosam parabilis. Omnium intelleges ante dialectica expectata quoque insatiabiles emancipaverat. Iudicabit indoctum verbis disciplinae tutiorem vexetur exeduntur p iure futurove difficile.
+        <a class="link" href="https://daum.net">Daum</a>
+    </p>
+
+    <h3>lorem ipsum3</h3>
+    <p id="third">
+        Carum uti relinqueret tincidunt nam, nusquam provident dicebas istius. Efficeretur iudicandum m uberiora mediocritatem conciliant ipso atomos dialectica quadam. Molestie harum servare noster ibidem forensibus primisque posuit priventur distinguantur altera. Seditione stoici suppetet utamur amicitiam. Filium liberos possim gaudere fodere didicisse. Dediti torquem expetenda, attulit, memoriter simul abhorreant effugiendorum. Fusce conspiratione paranda eos detractio, vidit que vide dices adhuc. Litora ancillae impeditur civitas studiose.
+        <a class="link" href="https://github.com">Github</a>
+    </p>
+
+    <h3>lorem ipsum4</h3>
+    <p id="fourth">
+        Massa stabilem abducat eaque usque hunc confidere credo. Consumere maledici vivendum, tradidisse inimicus philosophi liberatione tollit caret. Tractatas ab natus solitudo in philosophi plato. Videretur inducitur efficerent eamque dare primum magnos, delectat. Sit publicam cepisse fugiamus placuit provident confidet. Scribendi didicisse sapienter praeclaram quamquam.
+    </p>
+
+    <h3>lorem ipsum5</h3>
+    <p id="fifth">
+        Quorum desideret aliquod ignavi percipitur parvos haeret aliquando fugienda. Mutat quale, dicit astris scribere cogitavisse sensu. Adipisci res soliditatem aspernari deterret maiorem eidola. Victi expetendam divitiarum virtutes istae diuturnum multo. Vituperatum cognosci pertineant, an mel odio. Amarissimam habitant adversa incidant ibidem ipso nibh existimo firmitatem sol. Sis romano malesuada amicitias nemore molestum.
+    </p>
+    
+    <ul class="fruit">
+        <li id="red">red</li>
+        <li id="blue">blue</li>
+        <li id="green">green</li>
+    </ul>
+</body>
+
+<script>
+    /*
+    querySelectorAll(nodeList로 출력)
+    한번 저장된 값을 계속 사용
+    */
+    const pList1 = document.querySelectorAll('p');
+    console.log(pList1);
+    /*
+    getElementsByTagName(HTMLCollection으로 출력)
+    노드의 변경 사항이 실시간으로 반영됨
+    */
+    const pList2 = document.getElementsByTagName('p');
+    console.log(pList2);
+
+    // red id를 가진 요소에 접근
+    const red = document.getElementById('red');
+
+    // >>>>> 부모 노드 찾기
+    // parentNode - 부모 노드 중 모든 노드를 반환
+    // <ul class="fruit">...</ul>
+    const redParent = red.parentNode;
+    console.log(redParent);
+
+    // parentElement - 부모 노드 중 요소 노드만 반환
+    const redParent2 = red.parentElement;
+    console.log(redParent2);
+
+    // >>>>> 자식 노드 찾기
+    const fruitList = document.querySelector('.fruit');
+    console.log(fruitList);
+
+    // childNodes - 자식 노드 중 모든 노드를 반환
+    // (참고) 부모 노드와는 달리 자식 노드는 변경 사항이 실시간으로 반영됨
+    const fruitChild = fruitList.childNodes;
+    console.log(fruitChild);
+
+    // children - 자식 노드 중 요소 노드만 반환
+    const fruitChild2 = fruitList.children;
+    console.log(fruitChild2);
+
+    // 반복문으로 자식 노드의 개별 요소 접근 가능
+    for(c of fruitChild2) {
+        console.log(c);
+    }
+
+    // indx로 자식 노드의 개별 요소 접근 가능
+    // console.log(fruitChild2[0]);
+    // console.log(fruitChild2[1]);
+    // console.log(fruitChild2[2]);
+
+    const firstChild = fruitList.firstElementChild;
+    console.log(firstChild);
+    const lastChild = fruitList.lastElementChild;
+    console.log(lastChild);
+</script>
+</html>
