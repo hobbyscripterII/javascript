@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    #box {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        border: 5px solid black;
+        background-color: red;
+    }
+
+    #circle {
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        background-color: black;
+        border-radius: 50%;
+    }
+</style>
+
+<body>
+    <h1>event handler</h1>
+    <!--
+    <button onclick="alert('click')">click</button> 이벤트 핸들러 할당 방식1 - 태그 내에 이벤트 삽입
+    <button onclick="sayHello()">click</button> 이벤트 핸들러 할당 방식2 - function 활용
+    <button id="btn">click</button>
+    -->
+
+    <div id="div"></div>
+
+    <button id="btn2">click</button> <br>
+    <button id="btn3">double click</button> <br>
+
+    <input type="text" id="txt"> <br>
+    <input type="text" id="txt2"> <br>
+
+    <div id="box">
+        <div id="circle">
+
+        </div>
+    </div>
+</body>
+
+<script>
+    // function sayHello() {
+    //     alert('hello!');
+    // }
+
+    // const el = document.getElementById('btn');
+    // el.onclick = sayHello; // 이벤트 핸들러 할당 방식3 - 해당 요소 클릭 시 이벤트 발생
+
+    const el2 = document.getElementById('btn2');
+    // el2.addEventListener('click', sayHello); // 이벤트 핸들러 할당 방식4 - addEventListener
+
+    el2.addEventListener('click', () => { // * 이벤트 핸들러 할당 방식5 - addEventListener
+        alert('addEventListener - click');
+    })
+
+    const el3 = document.getElementById('btn3');
+    el3.addEventListener('dblclick', () => { // * dblclick - 더블 클릭 시 이벤트 발생
+        alert('addEventListener - dblclick');
+    })
+
+    const input = document.getElementById('txt');
+    input.addEventListener('keyup', (event) => {
+        // console.log(input.value);
+        // console.log(event);
+        console.log(event.key);
+    });
+
+    const input2 = document.getElementById('txt2');
+    // focus 발생 시 이벤트 발생
+    input2.addEventListener('focus', () => {
+        input2.style.backgroundColor = 'rgba(255,0,0,0.2)';
+    });
+
+    // focus 잃을 때 이벤트 발생
+    input2.addEventListener('blur', () => {
+        input2.style.backgroundColor = null;
+    })
+
+    // 해당 요소에 마우스가 움직일 때 마다 이벤트 발생
+    const box = document.getElementById('box');
+    const circle = document.getElementById('circle');
+    box.addEventListener('mousemove', event => {
+        // console.log(event); // 좌표 값 등이 콘솔 창에 찍힘
+
+        // circle의 top과 left 값을 바꿈
+        circle.style.top = `${event.clientY}px`;
+        circle.style.left = `${event.clientX}px`;
+    })
+
+    const div = document.getElementById('div');
+
+    // resize - 창의 크기가 바뀔 때 마다 너비 값과 높이 값을 업데이트 해줌
+    window.addEventListener('resize', () => {
+        div.innerText = `현재 창의 크기는 ${window.innerWidth} x ${window.innerHeight} 입니다.`;
+    })
+</script>
+</html>
