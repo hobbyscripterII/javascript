@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    #box {
+        width: 100px;
+        height: 100px;
+        border: 4px solid black;
+    }
+
+    .bg-red {
+        background-color: red;
+    }
+
+    .bg-green {
+        background-color: green;
+    }
+    
+    .bg-blue {
+        background-color: blue;
+    }
+
+    .txt-white {
+        color: white;
+    }
+
+    .txt-yellow {
+        color: yellow;
+    }
+
+    .txt-pink {
+        color: pink;
+    }
+</style>
+
+<body>
+    <h1>css style&class 제어</h1>
+
+    <div id="box">box</div>
+    <ul>
+        <li>red</li>
+        <li>green</li>
+        <li>blue</li>
+    </ul>
+
+    <script>
+        const box = document.getElementById('box');
+
+        // 특정 요소에 css style 추가
+        // box.style.backgroundColor = 'black';
+        // box.style.color = 'white';
+        // box.style.width = '100px';
+        // box.style.height = '100px';
+
+        // 이렇게도 작성 가능
+        box.style['text-align'] = 'center';
+        box.style['margin'] = 'auto';
+        box.style['line-height'] = '100px';
+        box.style['font-size'] = '30px';
+
+        // classList.add(추가할 class) - 특정 요소에 class 추가
+        // box.classList.add('bg-green');
+        // box.classList.add('txt-yellow')
+
+        // * classList.add(추가할 class1, 추가할 class2 ...) - 특정 요소에 class 여러개 추가
+        // box.classList.add('bg-green', 'txt-yellow');
+
+        // * classList.remove(삭제할 class) - 특정 요소에 class 삭제
+        // box.classList.remove('txt-yellow');
+
+        // * classList.replace(현재 class, 바꿀 class) - class 변경
+        // box.classList.replace('bg-green', 'bg-blue');
+
+        // * classList.toggle(넣었다 뺐다 할 class) - 특정 요소에 class를 넣었다 뺐다하기
+        // [참고] css class 추가 시 이전에 같은 css style을 먹인 경우 덮어씌워져서 못 알아챔
+        //       'f12' 눌러서 확인해야 티가 남
+        setInterval(() => {
+            box.classList.toggle('bg-red');
+        }, 1000)
+    </script>
+</body>
+</html>
